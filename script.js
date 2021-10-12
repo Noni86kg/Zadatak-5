@@ -35,8 +35,6 @@ function pressOperator(operator) {
             case '+':
                 currentNum = prevNum + currentNum;
                 displayNum.textContent = currentNum;
-                console.log(currentNum)
-                console.log(operator)
                 break;
             case '-':
                 currentNum = prevNum - currentNum
@@ -104,21 +102,32 @@ buttons.forEach((button) => {
             resetCalculator();
         })
     }
-
 })
 
 
+
+
 // 3 modes
-let activeMode = 0;
+let activeMode = Number(localStorage.getItem("activeMode"));
 
-toggleBtn.addEventListener('click' , function(e) {
-    const clicked = e.target.closest('.toggle')
+window.onload = function() {
+    modes()
+}
 
+toggleBtn.addEventListener('click' , ()=> {
+    modes() 
+})
+
+function modes() {
+
+    localStorage.setItem("activeMode", activeMode);
     activeMode += 1;
+
     if (activeMode > 2) {
         activeMode = 0;
     }
-    if (activeMode === 1) {
+
+    if (activeMode === 2) {
         document.documentElement.style.setProperty('--toglePos', 'center');
         document.documentElement.style.setProperty('--circlePos', '-2px');
         document.documentElement.style.setProperty('--them1bg', '#E6E6E6');
@@ -136,7 +145,7 @@ toggleBtn.addEventListener('click' , function(e) {
         document.documentElement.style.setProperty('--key1bgGrayHover', '#62B5BC');
         document.documentElement.style.setProperty('--red1toggleBgHover', '#FF8A38');
     }
-    if (activeMode === 2) {
+    if (activeMode === 0) {
         document.documentElement.style.setProperty('--toglePos', 'flex-end');
         document.documentElement.style.setProperty('--circlePos', '2px');
         document.documentElement.style.setProperty('--them1bg', '#17062A');
@@ -154,7 +163,7 @@ toggleBtn.addEventListener('click' , function(e) {
         document.documentElement.style.setProperty('--key1bgGrayHover', '#8631AF');
         document.documentElement.style.setProperty('--red1toggleBgHover', '#93FFF8');
     }
-    if (activeMode === 0) {
+    if (activeMode === 1) {
         document.documentElement.style.setProperty('--toglePos', 'flex-start');
         document.documentElement.style.setProperty('--circlePos', '-6px');
         document.documentElement.style.setProperty('--them1bg', 'rgb(58, 71, 100)');
@@ -172,4 +181,4 @@ toggleBtn.addEventListener('click' , function(e) {
         document.documentElement.style.setProperty('--key1bgGrayHover', 'rgb(162, 178, 225)');
         document.documentElement.style.setProperty('--red1toggleBgHover', 'rgb(249, 107, 91)');
     }
-})
+}
