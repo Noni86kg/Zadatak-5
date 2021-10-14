@@ -1,0 +1,228 @@
+:root {
+    --them1bg: rgb(58, 71, 100);
+    --toggle1bg: rgb(35, 44, 67);
+    --display1bg: rgb(24, 32, 52);
+    --key1bgGray: rgb(99, 112, 151);
+    --key1bgGrayHover: rgb(162, 178, 225);
+    --keytextDel: rgb(255, 255, 255);
+    --key1shadowGray: rgb(64, 78, 114);
+    --red1toggleBg:rgb(208, 63, 47); 
+    --red1toggleBgHover:rgb(249, 107, 91);
+    --red1toggleShadow:rgb(147, 38, 26); 
+    --key1bgWhite: rgb(234, 227, 220);
+    --key1shadowWhite: rgb(180, 165, 151);
+    --text1Gray: rgb(68, 75, 90);
+    --text1White: rgb(255, 255, 255);
+    --text1WhiteHover: rgb(255, 255, 255);
+    --toglePos: flex-start;
+    --circlePos: -6px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    font-family: 'Spartan', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    width: 100%;
+    height: 100vh;
+    background: var(--them1bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text1White);
+}
+button {
+    height: 64px;
+    width: 101px;
+    text-align: center;
+    background: var(--key1bgWhite);
+    border-radius: 15px;
+    border: none;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text1Gray);
+    box-shadow: 0px 4px 0px 0 var(--key1shadowWhite);
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+button:hover {
+    background: var(--text1WhiteHover);
+}
+.delete ,
+.reset {
+    background: var(--key1bgGray);
+    color: var(--keytextDel);
+    box-shadow: 0px 4px 0px 0 var(--key1shadowGray);
+    font-size: 20px;
+}
+.delete:hover ,
+.reset:hover {
+    background: var(--key1bgGrayHover);
+}
+.equal {
+    background: var(--red1toggleBg);
+    color: var(--text1White);
+    box-shadow: 0px 4px 0px 0 var(--red1toggleShadow);
+    font-size: 20px;
+}
+.equal:hover {
+    background: var(--red1toggleBgHover);
+}
+.reset ,
+.equal {
+    width: 227px;
+}
+/******************
+calculator
+******************/
+.calculator {
+    height: 708px;
+    width: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/******************
+top
+******************/
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+.top div {
+    display: flex;
+    align-items: flex-end;
+}
+.top div p {
+    font-size: 12px;
+    position: relative;
+    top: -5px;
+}
+.toggle {
+    height: 26px;
+    width: 71px;
+    border-radius: 13px;
+    background: var(--toggle1bg);
+    margin-left: 25px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: var(--toglePos);
+    padding: 5px;
+    cursor: pointer;
+}
+.toggle::after {
+    content: '1 2 3';
+    letter-spacing: 5px;
+    display: block; 
+    position: relative;
+    font-size: 12px;
+    top: -30px;
+    right: var(--circlePos);
+
+}
+.togle-circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--red1toggleBg);
+    position: absolute;
+}
+/******************
+display
+******************/
+.display {
+    background: var(--display1bg);
+    height: 128px;
+    line-height: 128px;
+    font-size: 48px;
+    width: 100%;
+    text-align: center;
+    padding: 0 35px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    border-radius: 15px;
+}
+.display p {
+    color: var(--text1White);
+}
+/******************
+buttons
+******************/
+.buttons {
+    background: var(--toggle1bg);
+    height: 480px;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 5px;
+}
+.buttons div {
+    display: flex;
+    justify-content: space-evenly;
+}
+/******************
+responsive for mob
+******************/
+@media (max-width: 823px) {
+    .calculator {
+        height: 90vh;
+        width: 86%;
+    }
+    .display {
+        height: 12vh;
+        line-height: 12vh;
+        font-size: 5vh;
+    }
+    .buttons {
+        height: 63vh;
+    }
+    button {
+        height: 10vh;
+        width: 20%;
+        font-size: 4vh;
+    }
+    .reset ,
+    .equal {
+        width: 44%;
+        font-size: 3vh;
+    }
+    .delete {
+        font-size: 3vh;
+    }
+}
+@media (max-height: 600px) and (min-height:600px) {
+    .calculator {
+        height: 90vh;
+        width: 86%;
+    }
+    .display {
+        height: 12vh;
+        line-height: 12vh;
+        font-size: 5vh;
+    }
+    .buttons {
+        height: 63vh;
+    }
+    button {
+        height: 10vh;
+        width: 20%;
+        font-size: 4vh;
+    }
+    .reset ,
+    .equal {
+        width: 44%;
+        font-size: 3vh;
+    }
+    .delete {
+        font-size: 3vh;
+    }
+}
